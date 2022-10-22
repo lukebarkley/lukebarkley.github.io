@@ -38,9 +38,9 @@
         "sizes": "512x512"
       }
     ],
-    "start_url": "https://www.google.com/",
+    "start_url": "https://lukebarkley.github.io/",
     "background_color": "#6aaa64",
     "display": "standalone",
     "theme_color": "#6aaa64",
-    "description": "A daily word game"
+    "description": "A TIMED daily word game"
   }
