@@ -26,11 +26,11 @@ if (!self.__WB_pmw) {
     previousSeconds = 0;
     [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
 
-    const startTimer = () => {
+    const startTimer = (newDay=false) => {
         if (!started) {
             started = true;
             const startTimeStorage = window.localStorage.getItem('startTime');
-            if (startTimeStorage?.length > 0) {
+            if (startTimeStorage?.length > 0 && !newDay) {
                 startTime = new Date(parseInt(startTimeStorage));
             } else {
                 startTime = new Date();
@@ -14525,7 +14525,7 @@ if (!self.__WB_pmw) {
                             {
                                 key: "dispatchKeyPressEvent",
                                 value: function (e) {
-                                    startTimer();
+                                    startTimer(true);
                                     this.dispatchEvent(new CustomEvent("game-key-press", { bubbles: !0, composed: !0, detail: { key: e } }));
                                 },
                             },
