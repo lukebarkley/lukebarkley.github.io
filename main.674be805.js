@@ -26,7 +26,7 @@ if (!self.__WB_pmw) {
     previousSeconds = 0;
     [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
 
-    const startTimer = (newDay=false) => {
+    const startTimer = (newDay=false, add10Seconds=false) => {
         if (!started) {
             started = true;
             const startTimeStorage = window.localStorage.getItem('startTime');
@@ -40,7 +40,7 @@ if (!self.__WB_pmw) {
                 currentTime = new Date();
                 formatGameTimer(startTime, currentTime);
             }, 50)
-        } else { 
+        } else if(add10Seconds){
             startTime.setSeconds(startTime.getSeconds() - 10);
         }
     }
@@ -14375,7 +14375,9 @@ if (!self.__WB_pmw) {
                                         "â†" === a || "Backspace" === a ? e.removeLetter() : "â†µ" === a || "Enter" === a ? e.submitGuess() : Gs.includes(a.toLowerCase()) && e.addLetter(a.toLowerCase());
                                     }),
                                         this.$game.addEventListener("game-last-tile-revealed-in-row", function (s) {
-
+                                            
+                                            startTimer(false,true);
+                                            
                                             (e.$keyboard.letterEvaluations = e.letterEvaluations), e.rowIndex < 6 && (e.canInput = !0);
                                             var a = e.$board.querySelectorAll("game-row")[e.rowIndex - 1];
                                             (s.path || (s.composedPath && s.composedPath())).includes(a) &&
