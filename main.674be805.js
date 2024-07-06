@@ -40,6 +40,8 @@ if (!self.__WB_pmw) {
                 currentTime = new Date();
                 formatGameTimer(startTime, currentTime);
             }, 50)
+        } else { 
+            startTime.setSeconds(startTime.getSeconds() - 10);
         }
     }
 
